@@ -1,7 +1,7 @@
-const Button = ({children}) => {
+const Button = ({fullWidth,children}) => {
     return (
         <div>
-            <button className="bg-sky-500 hover:bg-sky-600 font-semibold py-3 px-6 rounded text-white">{children}</button>
+            <button className={`${fullWidth? 'w-full': '' } bg-sky-500 hover:bg-sky-600 font-semibold py-3 px-6 rounded text-white`}>{children}</button>
         </div>
     );
 };
