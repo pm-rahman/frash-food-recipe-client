@@ -23,7 +23,7 @@ const Routes = createBrowserRouter([
             {
                 path: ':id',
                 element:<ChefsDetails/>,
-                loader: ({params})=> fetch(`https://favourite-food-recipes-server-pm-rahman.vercel.app/chefs/${params.id}`)
+                loader: ({params})=> fetch(`https://favourite-food-recipes-server-pm-rahman.vercel.app/recipes/${params.id}`)
             }
         ]
     }

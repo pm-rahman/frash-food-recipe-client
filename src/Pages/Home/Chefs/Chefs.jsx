@@ -6,7 +6,7 @@ const Chefs = ({ chefs }) => {
     const { id, ChefName, chefPicture, experience, NumberOfRecipes, Likes } = chefs;
     return (
         <div className="card card-compact w-full bg-base-100 shadow-xl">
-            <figure><img src={chefPicture} alt="chefs" /></figure>
+            <figure className="h-44 overflow-hidden"><img className="w-full" src={chefPicture} alt="chefs" /></figure>
             <div className="card-body">
                 <h2 className="card-title text-sky-500">{ChefName}</h2>
                 <div className="flex items-end justify-between mb-1">
