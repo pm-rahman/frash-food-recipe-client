@@ -1,11 +1,19 @@
 import { useLoaderData } from "react-router-dom";
 import Chefs from "../Chefs/Chefs";
+import { useEffect, useState } from "react";
+import ExtraSection from "../ExtraTwoSections/ExtraSection";
 
 const Home = () => {
     const theChefs = useLoaderData();
+    const [recipes, setRecipes] = useState([]);
+    useEffect(() => {
+        fetch('https://favourite-food-recipes-server-pm-rahman.vercel.app/recipes')
+            .then(res => res.json())
+            .then(data => setRecipes(data));
+    }, [])
     return (
-        <div>
-            <div className="px-32 py-12 grid md:grid-cols-3 gap-4">
+        <div className="md:px-32">
+            <div className="md:py-12 grid md:grid-cols-3 gap-4">
                 {
                     theChefs.map(chefs => <Chefs
                         key={chefs.id}
@@ -13,11 +21,27 @@ const Home = () => {
                     ></Chefs>)
                 }
             </div>
-            <div>
-                {/* discount foods */}
+            <div className="md:py-12">
+                <h4 className="text-center text-sky-600 text-4xl mb-2 font-bold">Spatial Discounted Recipes</h4>
+                <p className="text-center mb-4">Only this week. Don't miss</p>
+                <div className="grid grid-cols-3 gap-4">
+                    {recipes.slice(0, 6).map(recipe => <ExtraSection
+                        key={recipe.id}
+                        recipe={recipe}
+                    ></ExtraSection>)}
+                </div>
             </div>
-            <div>
-                {/* top Foods */}
+            <div className="md:py-12">
+                <h4 className="text-center text-4xl text-sky-600 font-bold mb-2">Top Rated Recipes</h4>
+                <p className="text-center mb-4">Base on your reviews</p>
+                <div className="grid grid-cols-2 gap-4">
+                    {recipes.slice(5, 9).map(recipe => <ExtraSection
+                        key={recipe.id}
+                        recipe={recipe}
+                    >
+                        {true}
+                    </ExtraSection>)}
+                </div>
             </div>
         </div>
     );
