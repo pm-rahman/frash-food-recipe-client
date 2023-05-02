@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import Background from '../../Components/Bannar/Bannar';
 import NavMenu from '../../Components/NavMenu/NavMenu';
@@ -7,12 +7,14 @@ import RecipesList from './RecipesList/RecipesList';
 import { useEffect, useState } from 'react';
 
 const ChefsDetails = () => {
-    const [chefs,setChefs] = useState([]);
-    useEffect(()=>{
-        fetch('https://favourite-food-recipes-server-pm-rahman.vercel.app/chefs/rew1')
-        .then(res=>res.json())
-        .then(data=>setChefs(data))
-    },[])
+    const [chefs, setChefs] = useState([]);
+    const recipes = useLoaderData();
+    const {id}= useParams();
+    useEffect(() => {
+        fetch(`https://favourite-food-recipes-server-pm-rahman.vercel.app/chefs/${id}`)
+        .then(res => res.json())
+        .then(data => setChefs(data))
+    }, [id])
     const { ChefName, chefPicture, experience, Likes, bio, NumberOfRecipes } = chefs;
     return (
         <>
@@ -39,8 +41,18 @@ const ChefsDetails = () => {
                 </Background>
                 <div className='bg-stone-500 opacity-70 h-full w-full mx-auto absolute top-0 -z-20'></div>
             </div>
-            <RecipesList/>
-            <Footer/>
+            <div className='px-32 py-12 bg-slate-50'>
+                <h4 className='text-2xl font-normal mb-6'>Hare Some Recipes</h4>
+                {
+                    recipes.map(recipe => <RecipesList
+                        key={recipe.id}
+                        recipe={recipe}
+                    >
+                    </RecipesList>
+                    )
+                }
+            </div>
+            <Footer />
         </>
     );
 };
