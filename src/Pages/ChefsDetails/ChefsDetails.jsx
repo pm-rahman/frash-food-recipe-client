@@ -5,6 +5,7 @@ import NavMenu from '../../Components/NavMenu/NavMenu';
 import Footer from '../../Components/Footer/Footer';
 import RecipesList from './RecipesList/RecipesList';
 import { useEffect, useState } from 'react';
+import LazyLoad from 'react-lazy-load';
 
 const ChefsDetails = () => {
     const [chefs, setChefs] = useState([]);
@@ -23,7 +24,9 @@ const ChefsDetails = () => {
                 <Banner>
                     <div className='p-12 relative items-center grid grid-cols-3 gap-8'>
                         <div className='h-52 w-full overflow-hidden'>
-                            <img className='rounded-md min-h-full mx-auto max-w-full' src={chefPicture} alt="" />
+                            <LazyLoad threshold={0.95}>
+                                <img className='rounded-md min-h-full mx-auto max-w-full' src={chefPicture} />
+                            </LazyLoad>
                         </div>
                         <div className='col-span-2 flex flex-col gap-2'>
                             <h4 className='font-bold'>{ChefName}</h4>

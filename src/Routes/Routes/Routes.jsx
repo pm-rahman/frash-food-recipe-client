@@ -7,6 +7,7 @@ import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 import BlogPage from '../../Pages/BlogPage/BlogPage';
 import Login from '../../Pages/Login/Login/Login';
 import Register from '../../Pages/Login/Register/Register';
+import PrivateRouter from '../PrivateRouter/PrivateRouter';
 
 const Routes = createBrowserRouter([
     {
@@ -38,7 +39,7 @@ const Routes = createBrowserRouter([
         children:[
             {
                 path: ':id',
-                element:<ChefsDetails/>,
+                element:<PrivateRouter><ChefsDetails/></PrivateRouter>,
                 loader: ({params})=> fetch(`https://favourite-food-recipes-server-pm-rahman.vercel.app/recipes/${params.id}`)
             }
         ]
