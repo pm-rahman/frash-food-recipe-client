@@ -12,7 +12,6 @@ const ExtraSection = ({ recipe, children }) => {
                 <p>{cookingMethod.length && cookingMethod.slice(0,100)}<Link className="ml-2 font-medium text-sky-500 underline">See More</Link></p>
                 {children
                     ? <div>
-                        <p></p>
                         <h4 className="text-lg font-medium">Ingredients</h4>
                         <span>{ingredients?.[0]}, </span>
                         <span>{ingredients?.[1]}, </span>

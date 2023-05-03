@@ -2,14 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700&family=Lato:ital,wght@0,400;0,700;1,300;1,400;1,700&family=Pacifico&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Roboto:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Domine:wght@500;600;700&family=Zilla+Slab:wght@300;400&display=swap');
+
+* {
+    font-family: 'Zilla Slab', serif;
+}
+
 h1,
 h2,
 h3,
-h4 {
-    font-family: 'Roboto Condensed', sans-serif;
+h4,
+button {
+    font-family: 'Domine', serif;
 }
 
-* {
-    font-family: "Dosis", sans-serif;
+.logo {
+    font-family: 'Righteous', cursive !important;
+    font-weight: 700;
 }

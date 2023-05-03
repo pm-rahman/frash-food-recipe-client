@@ -3,6 +3,7 @@ import Main from '../../Layouts/Main/Main';
 import Home from '../../Pages/Home/Home/Home';
 import ChefsLayout from '../../Layouts/ChefsLayout/ChefsLayout';
 import ChefsDetails from '../../Pages/ChefsDetails/ChefsDetails';
+import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 
 const Routes = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const Routes = createBrowserRouter([
                 loader: ({params})=> fetch(`https://favourite-food-recipes-server-pm-rahman.vercel.app/recipes/${params.id}`)
             }
         ]
+    },
+    {
+        path:'/*',
+        element: <ErrorPage/>
     }
 ])
 export default Routes;

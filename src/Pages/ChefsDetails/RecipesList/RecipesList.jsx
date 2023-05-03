@@ -2,6 +2,7 @@ import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const RecipesList = ({ recipe }) => {
     const [favorite, setFavorite] = useState(false);
