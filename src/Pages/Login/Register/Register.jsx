@@ -65,7 +65,7 @@ const Register = () => {
     }
 
     return (
-        <div className="px-32 py-12">
+        <div className="px-12 sm:px-20 md:px-32 py-12">
             <div className="flex flex-col items-center bg-slate-50 py-10 sm:justify-center">
                 <div className="w-full px-10 py-8 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
                     <form onSubmit={registerFormHandler}>

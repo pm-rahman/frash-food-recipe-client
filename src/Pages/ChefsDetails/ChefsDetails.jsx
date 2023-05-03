@@ -1,6 +1,6 @@
 import { useLoaderData, useParams } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import Background from '../../Components/Bannar/Bannar';
+import Banner from '../../Components/Banner/Banner';
 import NavMenu from '../../Components/NavMenu/NavMenu';
 import Footer from '../../Components/Footer/Footer';
 import RecipesList from './RecipesList/RecipesList';
@@ -20,7 +20,7 @@ const ChefsDetails = () => {
         <>
             <NavMenu />
             <div className='relative'>
-                <Background>
+                <Banner>
                     <div className='p-12 relative items-center grid grid-cols-3 gap-8'>
                         <div className='h-52 w-full overflow-hidden'>
                             <img className='rounded-md min-h-full mx-auto max-w-full' src={chefPicture} alt="" />
@@ -38,10 +38,10 @@ const ChefsDetails = () => {
                         </div>
                         <div className='bg-stone-100 opacity-30 rounded-lg -z-10 h-full w-full mx-auto absolute top-0'></div>
                     </div>
-                </Background>
+                </Banner>
                 <div className='bg-stone-500 opacity-70 h-full w-full mx-auto absolute top-0 -z-20'></div>
             </div>
-            <div className='px-32 py-12 bg-slate-50'>
+            <div className='px-12 sm:px-20 md:px-32 py-12 bg-slate-50'>
                 <h4 className='text-2xl font-normal mb-6'>Hare Some Recipes</h4>
                 {
                     recipes.map(recipe => <RecipesList
