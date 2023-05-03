@@ -1,22 +1,63 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 
 const Login = () => {
+    const [error, setError] = useState('');
+    const [isPassShow, setIsPassShow] = useState(false)
+    const { loginHandler, googleUserHandler, GitHubUserHandler } = useContext(AuthContext);
+    const signFormHandler = (event) => {
+        event.preventDefault();
+        setError('');
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        loginHandler(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(err => {
+                setError(err.message);
+            });
+        form.reset();
+    }
+    const createGoogleUserHandler = () => {
+        setError('');
+        googleUserHandler()
+            .then(result => {
+                const user = result.user
+                console.log(user);
+            })
+            .catch(err => {
+                setError(err.message)
+            })
+    }
+    const createGitHubUserHandler = () => {
+        setError('');
+        GitHubUserHandler()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(err => {
+                setError(err.message);
+            })
+    }
     return (
         <div className="px-32 py-12">
             <div className="flex flex-col items-center bg-slate-50 py-10 sm:justify-center">
                 <div className="w-full px-10 py-8 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
-                <form >
-                        <h4 className="mb-3 text-2xl">Create An Account</h4>
-                        <input name="name" type="text" placeholder="Name"  required className="w-full border-b p-2 mb-2"/>
-                        <input name="email" type="email" placeholder="Email"  required className="w-full border-b p-2 mb-2"/>
-                        <input name="photo" type="url" placeholder="Photo Url"  required className="w-full border-b p-2 mb-2"/>
-                        <input name="password" type="password" placeholder="Password"  required className="w-full border-b p-2 mb-2"/>
-                        <input name="confirmPassword" type="password" placeholder="Confirm password"  required className="w-full border-b p-2 mb-2"/>
-                        <p className="text-sky-500 pl-2">Error massage</p>
-                        <button type="submit" className="btn btn-info w-full text-white mt-3">Register</button>
+                    <form onSubmit={signFormHandler}>
+                        <h4 className="mb-3 text-2xl">Login</h4>
+                        <input name="email" type="email" placeholder="Email" required className="w-full border-b border-l p-2 mb-2" />
+                        <input name="password" type={isPassShow ? 'text' : 'password'} placeholder="password" required className="w-full border-b border-l p-2 mb-2" />
+                        <p onClick={() => setIsPassShow(true)} className="text-sky-500 pl-2 mb-2">Show Password</p>
+                        <p className="text-red-500 pl-2">{error ? error : ""}</p>
+                        <button type="submit" className="btn btn-info w-full text-white mt-3">Login</button>
                     </form>
                     <div className="mt-4 text-grey-600">
-                       I don't have account?{" "}
+                        I don't have account?{" "}
                         <span>
                             <Link to='/register' className="text-sky-500 hover:underline">
                                 Register
@@ -29,7 +70,7 @@ const Login = () => {
                         <hr className="w-full" />
                     </div>
                     <div className="my-6 space-y-2">
-                        <button
+                        <button onClick={createGoogleUserHandler}
                             aria-label="Login with Google"
                             type="button"
                             className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
@@ -43,7 +84,7 @@ const Login = () => {
                             </svg>
                             <p>Login with Google</p>
                         </button>
-                        <button
+                        <button onClick={createGitHubUserHandler}
                             aria-label="Login with GitHub"
                             role="button"
                             className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
