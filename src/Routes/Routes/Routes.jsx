@@ -5,6 +5,8 @@ import ChefsLayout from '../../Layouts/ChefsLayout/ChefsLayout';
 import ChefsDetails from '../../Pages/ChefsDetails/ChefsDetails';
 import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 import BlogPage from '../../Pages/BlogPage/BlogPage';
+import Login from '../../Pages/Login/Login/Login';
+import Register from '../../Pages/Login/Register/Register';
 
 const Routes = createBrowserRouter([
     {
@@ -15,6 +17,14 @@ const Routes = createBrowserRouter([
                 path:'/',
                 element: <Home/>,
                 loader: ()=>fetch('https://favourite-food-recipes-server-pm-rahman.vercel.app/chefs')
+            },
+            {
+                path:'/login',
+                element:<Login/>
+            },
+            {
+                path:'/register',
+                element:<Register/>
             },
             {
                 path:'/blogs',

@@ -17,7 +17,9 @@ const NavMenu = () => {
                     </ul>
                 </div>
                 <div className="">
-                    <Button>Login</Button>
+                    <Link to='/login'>
+                        <Button>Login</Button>
+                    </Link>
                 </div>
             </div>
         </div>
