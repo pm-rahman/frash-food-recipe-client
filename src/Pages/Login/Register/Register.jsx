@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
@@ -7,6 +7,7 @@ const Register = () => {
     const { createUserHandler, googleUserHandler, GitHubUserHandler } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [isPassShow, setIsPassShow] = useState(false)
+    const navigate = useNavigate();
     const registerFormHandler = (event) => {
         event.preventDefault();
         setError('');
@@ -23,7 +24,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 updateUserInfo(user, name, photoUrl);
-                console.log(user);
+                navigate('/');
             })
             .catch(err => {
                 setError(err.message);

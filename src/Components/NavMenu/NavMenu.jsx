@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import ActiveLink from "../ActiveLink/ActiveLink";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const NavMenu = () => {
+    const { user,logout } = useContext(AuthContext);
+    console.log(user);
+    const userLogoutHandler = ()=>{
+        logout()
+        .then()
+        .catch()
+    }
     return (
         <div className="px-32 py-3">
             <div className="navbar bg-base-100">
@@ -16,10 +25,18 @@ const NavMenu = () => {
                         <li><ActiveLink to='/blogs'>Blogs</ActiveLink></li>
                     </ul>
                 </div>
-                <div className="">
-                    <Link to='/login'>
-                        <Button>Login</Button>
-                    </Link>
+                <div>
+                    {
+                        user ? <div className="flex gap-3 items-center">
+                            <img title={user?.displayName} className="cursor-pointer h-10 w-10 rounded-full" src={user?.photoURL} alt="" />
+                            <Link onClick={userLogoutHandler}>
+                                <Button>logout</Button>
+                            </Link>
+                        </div>
+                            : <Link to='/login'>
+                                <Button>Login</Button>
+                            </Link>
+                    }
                 </div>
             </div>
         </div>
