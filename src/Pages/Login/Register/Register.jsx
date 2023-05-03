@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
-import Button from "../../../Components/Button/Button";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+    const {createUserHandler} = useContext(AuthContext);
     const [error,setError] = useState('');
+    const [isPassShow,setIsPassShow] = useState(false)
     const registerFormHandler = (event)=>{
         event.preventDefault();
         setError('');
@@ -12,108 +15,44 @@ const Register = () => {
         const email = form.email.value;
         const photoUrl = form.photo.value;
         const password = form.password.value;
-        const confirmPassword = form.password_confirmation.value;
+        const confirmPassword = form.confirmPassword.value;
         if(password !== confirmPassword){
             return setError("your password don't match");
         }
+        createUserHandler(email,password)
+        .then(result=>{
+            const user = result.user;
+            updateUserInfo(user,name,photoUrl);
+            console.log(user);
+        })
+        .catch(err=>{
+            setError(err.message);
+        })
         console.log(name,email,photoUrl,password,confirmPassword);
+    }
+    const updateUserInfo = (user,name,photo)=>{
+        updateProfile(user,{
+            displayName : name , photoURL: photo
+        })
+        .then()
+        .catch(err=>{
+            setError(err.message);
+        })
     }
     return (
         <div className="px-32 py-12">
             <div className="flex flex-col items-center bg-slate-50 py-10 sm:justify-center">
                 <div className="w-full px-10 py-8 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
                     <form onSubmit={registerFormHandler}>
-                        <h4 className="text-xl font-bold mb-12">Create an account</h4>
-                        <div>
-                            <label
-                                htmlFor="name"
-                                className="block text-sm font-medium text-gray-700 undefined"
-                            >
-                                Name
-                            </label>
-                            <div className="flex flex-col items-start">
-                                <input
-                                    required
-                                    type="text"
-                                    name="name"
-                                    className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                />
-                            </div>
-                        </div>
-                        <div className="mt-4">
-                            <label
-                                htmlFor="email"
-                                className="block text-sm font-medium text-gray-700 undefined"
-                            >
-                                Email
-                            </label>
-                            <div className="flex flex-col items-start">
-                                <input
-                                    required
-                                    type="email"
-                                    name="email"
-                                    className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                />
-                            </div>
-                        </div>
-                        <div className="mt-4">
-                            <label
-                                htmlFor="email"
-                                className="block text-sm font-medium text-gray-700 undefined"
-                            >
-                                Photo Url
-                            </label>
-                            <div className="flex flex-col items-start">
-                                <input
-                                    required
-                                    type="url"
-                                    name="photo"
-                                    className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                />
-                            </div>
-                        </div>
-                        <div className="mt-4">
-                            <label
-                                htmlFor="password"
-                                className="block text-sm font-medium text-gray-700 undefined"
-                            >
-                                Password
-                            </label>
-                            <div className="flex flex-col items-start">
-                                <input
-                                    required
-                                    type="password"
-                                    name="password"
-                                    className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                />
-                            </div>
-                        </div>
-                        <div className="mt-4">
-                            <label
-                                htmlFor="password_confirmation"
-                                className="block text-sm font-medium text-gray-700 undefined"
-                            >
-                                Confirm Password
-                            </label>
-                            <div className="flex flex-col items-start">
-                                <input
-                                    required
-                                    type="password"
-                                    name="password_confirmation"
-                                    className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                />
-                            </div>
-                        </div>
-                        <a
-                            href="#"
-                            className="text-xs text-sky-500 hover:underline"
-                        >
-                            Error massage?
-                        </a>
-                        <p className="text-sky-500"></p>
-                        <Link className="mt-4 block">
-                            <Button fullWidth={true}>Register</Button>
-                        </Link>
+                        <h4 className="mb-3 text-2xl">Create An Account</h4>
+                        <input name="name" type="text" placeholder="Name"  required className="w-full border-b p-2 mb-2"/>
+                        <input name="email" type="email" placeholder="Email"  required className="w-full border-b p-2 mb-2"/>
+                        <input name="photo" type="url" placeholder="Photo Url"  required className="w-full border-b p-2 mb-2"/>
+                        <input name="password" type={isPassShow?'text':'password'} placeholder="password"  required className="w-full border-b p-2 mb-2"/>
+                        <input name="confirmPassword" type={isPassShow?'text':'password'} placeholder="Confirm password"  required className="w-full border-b p-2 mb-2"/>
+                        <p onClick={()=>setIsPassShow(true)} className="text-sky-500 pl-2 mb-2">Show Password</p>
+                        <p className="text-red-500 pl-2">{error?error:""}</p>
+                        <button type="submit" className="btn btn-info w-full text-white mt-3">Register</button>
                     </form>
                     <div className="mt-4 text-grey-600">
                         Already have an account?{" "}
