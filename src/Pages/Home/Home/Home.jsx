@@ -13,13 +13,16 @@ const Home = () => {
     }, [])
     return (
         <div className="md:px-32">
-            <div className="md:py-12 grid md:grid-cols-3 gap-4">
-                {
-                    theChefs.map(chefs => <Chefs
-                        key={chefs.id}
-                        chefs={chefs}
-                    ></Chefs>)
-                }
+            <div className="md:py-12">
+                <h4 className="text-center text-4xl text-sky-600 font-bold mb-6">Our Chefs</h4>
+                <div className="grid md:grid-cols-3 gap-4">
+                    {
+                        theChefs.map(chefs => <Chefs
+                            key={chefs.id}
+                            chefs={chefs}
+                        ></Chefs>)
+                    }
+                </div>
             </div>
             <div className="md:py-12">
                 <h4 className="text-center text-sky-600 text-4xl mb-2 font-bold">Spatial Discounted Recipes</h4>

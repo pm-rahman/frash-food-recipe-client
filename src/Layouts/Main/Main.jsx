@@ -4,12 +4,9 @@ import Footer from "../../Components/Footer/Footer";
 import NavMenu from "../../Components/NavMenu/NavMenu";
 import Button from "../../Components/Button/Button";
 import { Icon } from "@iconify/react";
-import { useState } from "react";
 
 const Main = () => {
     const { pathname } = useLocation();
-    // const [isBgShow,SetIsBgShow] = useState(true);
-    // console.log(pathname);
     return (
         <div>
             <NavMenu />

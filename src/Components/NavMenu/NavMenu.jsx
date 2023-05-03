@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import ActiveLink from "../ActiveLink/ActiveLink";
 import { useContext } from "react";
@@ -6,7 +6,6 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const NavMenu = () => {
     const { user,logout } = useContext(AuthContext);
-    console.log(user);
     const userLogoutHandler = ()=>{
         logout()
         .then()

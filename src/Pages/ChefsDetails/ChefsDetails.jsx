@@ -9,11 +9,11 @@ import { useEffect, useState } from 'react';
 const ChefsDetails = () => {
     const [chefs, setChefs] = useState([]);
     const recipes = useLoaderData();
-    const {id}= useParams();
+    const { id } = useParams();
     useEffect(() => {
         fetch(`https://favourite-food-recipes-server-pm-rahman.vercel.app/chefs/${id}`)
-        .then(res => res.json())
-        .then(data => setChefs(data))
+            .then(res => res.json())
+            .then(data => setChefs(data))
     }, [id])
     const { ChefName, chefPicture, experience, Likes, bio, NumberOfRecipes } = chefs;
     return (
