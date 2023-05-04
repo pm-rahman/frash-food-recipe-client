@@ -42,7 +42,10 @@ const RecipesList = ({ recipe }) => {
                         <td className='col-span-2 self-start'>
                             <span className="font-bold">Cooking Method</span>
                             <br />
-                            <span className="text-sm">{cookingMethod.length && cookingMethod.slice(0, 200)}<Link className="ml-2 font-medium text-sky-500 underline">See More</Link></span>
+                            <span className="text-sm">{cookingMethod.length > 100 ?
+                                <>{cookingMethod.slice(0, 200)} <Link className="underline ml-1 text-sky-500 font-semibold">See more</Link></>
+                                : cookingMethod
+                            }</span>
                         </td>
                         <td>
                             <Rating
