@@ -31,6 +31,7 @@ const Login = () => {
         googleUserHandler()
             .then(result => {
                 const user = result.user
+                navigate(from);
                 console.log(user);
             })
             .catch(err => {
@@ -42,6 +43,7 @@ const Login = () => {
         GitHubUserHandler()
             .then(result => {
                 const user = result.user;
+                navigate(from);
                 console.log(user);
             })
             .catch(err => {

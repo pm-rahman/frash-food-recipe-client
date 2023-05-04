@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -18,7 +19,7 @@ const Footer = () => {
                 </div>
             </div>
             <hr />
-            <p className='mt-4 text-gray-700 text-center text-sm'>Copyright 2022 ©. All rights reserved. Powered by Favorite Food Zone.</p>
+            <p className='mt-4 text-gray-700 text-center text-sm'>Copyright 2022 ©. All rights reserved. Powered by <Link className='underline'>Fresh Food Recipes.</Link></p>
         </div>
     );
 };

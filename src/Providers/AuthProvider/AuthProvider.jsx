@@ -5,23 +5,29 @@ import app from "../../firebaseConfig/firebase.config";
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
-  const [user,setUser] = useState(null)
+  const [user,setUser] = useState(null);
+  const [isLoading,setIsLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
   const gitHubProvider = new GithubAuthProvider();
   const createUserHandler = (email, password) => {
+    setIsLoading(true)
     return createUserWithEmailAndPassword(auth, email, password)
   }
   const googleUserHandler=()=>{
+    setIsLoading(true);
     return signInWithPopup(auth,googleProvider)
   }
   const GitHubUserHandler=()=>{
+    setIsLoading(true)
     return signInWithPopup(auth,gitHubProvider)
   }
   const loginHandler = (email,password)=>{
+    setIsLoading(true);
     return signInWithEmailAndPassword(auth,email,password)
   } 
   useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth,currentUser=>{
+      setIsLoading(false)
       setUser(currentUser);
       return currentUser;
     })
@@ -36,7 +42,8 @@ const AuthProvider = ({ children }) => {
     googleUserHandler,
     GitHubUserHandler,
     loginHandler,
-    logout
+    logout,
+    isLoading
   }
   return (
     <AuthContext.Provider value={userInfo}>

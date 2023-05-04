@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import ActiveLink from "../ActiveLink/ActiveLink";
 import { useContext } from "react";
@@ -6,21 +6,27 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const NavMenu = () => {
     const { user, logout } = useContext(AuthContext);
+    const naviGate = useNavigate()
+    const location = useLocation()
+    const from = location.pathname === '/chefs' ? '/' : location.pathname
     const userLogoutHandler = () => {
         logout()
-            .then()
+            .then(() => {
+                naviGate(from)
+            }
+            )
             .catch()
     }
     return (
-        <div className="px-12 sm:px-20 md:px-32 py-1 md:py-3">
-            <div className="navbar flex-col md:flex-row gap-1 bg-base-100">
+        <div className="px-6 sm:px-20 md:px-32 py-1 md:py-3">
+            <div className="navbar p-0 md:p-2 flex-col md:flex-row gap-1 bg-base-100">
                 <div className="md:navbar-start">
                     <a className="normal-case logo text-xl flex md:items-center"><span className="text-2xl text-sky-500">F</span>resh <span className="text-2xl text-sky-500">F</span>ood <span className="text-2xl text-sky-500 px-0">R</span>ecipes </a>
                     <h4></h4>
                 </div>
-                <div className="md:navbar-end flex">
+                <div className="md:navbar-end flex items-center gap-4">
                     <div className="">
-                        <ul className="menu menu-horizontal md:px-1">
+                        <ul className="flex gap-2 md:gap-4 md:px-1">
                             <li><ActiveLink to='/'>Home</ActiveLink></li>
                             <li><ActiveLink to='/blogs'>Blogs</ActiveLink></li>
                         </ul>

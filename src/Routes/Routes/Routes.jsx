@@ -4,10 +4,10 @@ import Home from '../../Pages/Home/Home/Home';
 import ChefsLayout from '../../Layouts/ChefsLayout/ChefsLayout';
 import ChefsDetails from '../../Pages/ChefsDetails/ChefsDetails';
 import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
-import BlogPage from '../../Pages/BlogPage/BlogPage';
 import Login from '../../Pages/Login/Login/Login';
 import Register from '../../Pages/Login/Register/Register';
 import PrivateRouter from '../PrivateRouter/PrivateRouter';
+import BlogPage from '../../Pages/BlogPage/BlogPage';
 
 const Routes = createBrowserRouter([
     {
@@ -30,7 +30,7 @@ const Routes = createBrowserRouter([
             {
                 path:'/blogs',
                 element:<BlogPage/>
-            }
+            },
         ]
     },
     {
