@@ -16,9 +16,7 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         loginHandler(email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
+            .then(() => {
                 navigate(from);
             })
             .catch(err => {
@@ -29,10 +27,8 @@ const Login = () => {
     const createGoogleUserHandler = () => {
         setError('');
         googleUserHandler()
-            .then(result => {
-                const user = result.user
+            .then(() => {
                 navigate(from);
-                console.log(user);
             })
             .catch(err => {
                 setError(err.message)
@@ -41,17 +37,15 @@ const Login = () => {
     const createGitHubUserHandler = () => {
         setError('');
         GitHubUserHandler()
-            .then(result => {
-                const user = result.user;
+            .then(() => {
                 navigate(from);
-                console.log(user);
             })
             .catch(err => {
                 setError(err.message);
             })
     }
     return (
-        <div className="px-12 sm:px-20 md:px-32 py-12">
+        <div className="mx-12 border-t sm:mx-20 md:mx-32 py-12">
             <div className="flex flex-col items-center bg-slate-50 py-10 sm:justify-center">
                 <div className="w-full px-10 py-8 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
                     <form onSubmit={signFormHandler}>

@@ -4,7 +4,7 @@ import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-    const { createUserHandler, googleUserHandler, GitHubUserHandler } = useContext(AuthContext);
+    const { createUserHandler, googleUserHandler, GitHubUserHandler} = useContext(AuthContext);
     const [error, setError] = useState('');
     const [isPassShow, setIsPassShow] = useState(false)
     const navigate = useNavigate();
@@ -25,19 +25,18 @@ const Register = () => {
                 const user = result.user;
                 updateUserInfo(user, name, photoUrl);
                 navigate('/');
+                form.reset();
             })
             .catch(err => {
                 setError(err.message);
             });
-        form.reset();
     }
 
     const createGoogleUserHandler = () => {
         setError('');
         googleUserHandler()
-            .then(result => {
-                const user = result.user
-                console.log(user);
+            .then(() => {
+
             })
             .catch(err => {
                 setError(err.message)
@@ -46,9 +45,7 @@ const Register = () => {
     const createGitHubUserHandler = () => {
         setError('');
         GitHubUserHandler()
-            .then(result => {
-                const user = result.user;
-                console.log(user);
+            .then(() => {
             })
             .catch(err => {
                 setError(err.message);
@@ -65,7 +62,7 @@ const Register = () => {
     }
 
     return (
-        <div className="px-12 sm:px-20 md:px-32 py-12">
+        <div className="mx-12 border-t sm:mx-20 md:mx-32 py-12">
             <div className="flex flex-col items-center bg-slate-50 py-10 sm:justify-center">
                 <div className="w-full px-10 py-8 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
                     <form onSubmit={registerFormHandler}>

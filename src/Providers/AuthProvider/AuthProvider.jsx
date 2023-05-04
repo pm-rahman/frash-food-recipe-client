@@ -5,35 +5,35 @@ import app from "../../firebaseConfig/firebase.config";
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
-  const [user,setUser] = useState(null);
-  const [isLoading,setIsLoading] = useState(true);
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
   const gitHubProvider = new GithubAuthProvider();
   const createUserHandler = (email, password) => {
     setIsLoading(true)
     return createUserWithEmailAndPassword(auth, email, password)
   }
-  const googleUserHandler=()=>{
+  const googleUserHandler = () => {
     setIsLoading(true);
-    return signInWithPopup(auth,googleProvider)
+    return signInWithPopup(auth, googleProvider)
   }
-  const GitHubUserHandler=()=>{
+  const GitHubUserHandler = () => {
     setIsLoading(true)
-    return signInWithPopup(auth,gitHubProvider)
+    return signInWithPopup(auth, gitHubProvider)
   }
-  const loginHandler = (email,password)=>{
+  const loginHandler = (email, password) => {
     setIsLoading(true);
-    return signInWithEmailAndPassword(auth,email,password)
-  } 
-  useEffect(()=>{
-    const unsubscribe = onAuthStateChanged(auth,currentUser=>{
+    return signInWithEmailAndPassword(auth, email, password)
+  }
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setIsLoading(false)
       setUser(currentUser);
       return currentUser;
     })
     return unsubscribe;
-  },[])
-  const logout = ()=>{
+  }, [])
+  const logout = () => {
     return signOut(auth)
   }
   const userInfo = {

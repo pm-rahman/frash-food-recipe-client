@@ -19,7 +19,7 @@ const Footer = () => {
                 </div>
             </div>
             <hr />
-            <p className='mt-4 text-gray-700 text-center text-sm'>Copyright 2022 ©. All rights reserved. Powered by <Link className='underline'>Fresh Food Recipes.</Link></p>
+            <p className='mt-4 text-gray-700 text-center text-sm'>Copyright 2022 ©. All rights reserved. Powered by <Link className='underline'>FreshFoodRecipes.</Link></p>
         </div>
     );
 };
