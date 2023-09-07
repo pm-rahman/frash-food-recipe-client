@@ -20,7 +20,7 @@ const Home = () => {
             <Banner>
                 <span className="text-semibold text-sm font-normal flex items-center gap-2">EXCLUSIVE RECIPES <span className="bg-emerald-600 py-1 px-2 md:px-4 rounded-full">25% OFF</span></span>
                 <h4 className="text-2xl md:text-4xl font-semibold py-3">Our Spatial Discount<p className="flex gap-2"> Week is <span className="flex items-end"><Icon className="text-2xl" icon="fa-solid:running" /><Icon className="text-3xl" icon="fa-solid:running" /><Icon icon="fa-solid:running" /></span></p></h4>
-                <p className="font-medium text-lg mb-4">Only this week. Don't miss</p>
+                <p className="font-medium text-lg mb-4">{"Only this week. Don't miss"}</p>
                 <Button><span className="flex items-center gap-2">Go To Prime <Icon icon="fa-solid:long-arrow-alt-right" /></span></Button>
             </Banner>
 
@@ -42,7 +42,7 @@ const Home = () => {
                 {/* chefs section */}
                 <>
                     <h4 className="text-2xl font-bold mb-3"><span className="border-b-2 pb-1 border-emerald-500">Our </span>Chefs</h4>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-2">
                         {
                             theChefs.map(chefs => <Chefs
                                 key={chefs.id}
