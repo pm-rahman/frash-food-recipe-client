@@ -14,7 +14,7 @@ const RecipesList = ({ recipe }) => {
             icon: 'success',
             title: 'Add To Favorite list Successful',
             showConfirmButton: false,
-            timer: 1500
+            timer: 1600
         })
     }
     return (
@@ -43,7 +43,7 @@ const RecipesList = ({ recipe }) => {
                             <span className="font-bold">Cooking Method</span>
                             <br />
                             <span className="text-sm">{cookingMethod.length > 100 ?
-                                <>{cookingMethod.slice(0, 200)} <Link className="underline ml-1 text-sky-500 font-semibold">See more</Link></>
+                                <>{cookingMethod.slice(0, 200)} <Link className="underline ml-1 text-emerald-600 font-semibold">See more</Link></>
                                 : cookingMethod
                             }</span>
                         </td>

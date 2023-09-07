@@ -9,7 +9,7 @@ const Footer = () => {
                     <Icon className='text-2xl border h-10 w-10 md:h-12 md:w-12 rounded-full p-2' icon="fa-solid:phone-alt" />
                     <div>
                         <p className="font-normal text-lg md:text-2xl">+880134567891</p>
-                        <span className="text-xs text-gray-500">Working 8:00am-12am</span>
+                        <span className="text-xs text-gray-600">Working 8:00am-12am</span>
                     </div>
                 </div>
                 <div className='flex gap-3'>

@@ -18,10 +18,10 @@ const NavMenu = () => {
             .catch()
     }
     return (
-        <div className="px-6 sm:px-20 md:px-32 py-1 md:py-3">
-            <div className="navbar p-0 md:p-2 flex-col md:flex-row gap-1 bg-base-100">
+        <div className="px-6 sm:px-20 md:px-32 py-1 md:py-2">
+            <div className="navbar p-0 md:p-1 flex-col md:flex-row gap-1 bg-base-100">
                 <div className="md:navbar-start">
-                    <a className="normal-case logo text-xl flex md:items-center"><span className="text-2xl text-sky-500">F</span>resh <span className="text-2xl text-sky-500">F</span>ood <span className="text-2xl text-sky-500 px-0">R</span>ecipes </a>
+                    <a className="normal-case logo text-xl flex md:items-center"><span className="text-2xl text-emerald-600">F</span>resh <span className="text-2xl text-emerald-600">F</span>ood </a>
                     <h4></h4>
                 </div>
                 <div className="md:navbar-end flex items-center gap-4">

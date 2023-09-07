@@ -18,3 +18,10 @@ button {
     font-family: 'Righteous', cursive !important;
     font-weight: 700;
 }
+/* chefs card  */
+.chef-card:hover .chef-card-inner{
+ top: 22%;
+}
+.chef-card-inner{
+    transition: 1s;
+}

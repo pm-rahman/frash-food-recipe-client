@@ -5,10 +5,10 @@ import { Icon } from '@iconify/react';
 const Chefs = ({ chefs }) => {
     const { id, ChefName, chefPicture, experience, NumberOfRecipes, Likes } = chefs;
     return (
-        <div className="card card-compact w-full bg-base-100 shadow-xl">
-            <figure className="h-44 overflow-hidden relative"> <img className="absolute top-0 max-w-full" src={chefPicture} alt="chefs" /></figure>
-            <div className="card-body">
-                <h2 className="card-title text-sky-500">{ChefName}</h2>
+        <div className="chef-card w-full cursor-pointer relative rounded-sm bg-base-100 shadow overflow-hidden">
+            <figure className="h-40 overflow-hidden relative"> <img className="absolute top-0 w-full" src={chefPicture} alt="chefs" /></figure>
+            <div className="chef-card-inner p-1 absolute w-full h-full top-[78%] bg-emerald-100">
+                <h2 className="card-title">{ChefName}</h2>
                 <div className="flex items-end justify-between mb-1">
                     <div>
                         <p className="text-sm  font-medium">{experience}</p>

@@ -4,11 +4,11 @@ import NavMenu from "../../Components/NavMenu/NavMenu";
 
 const Main = () => {
     return (
-        <div>
+        <>
             <NavMenu />
             <Outlet />
             <Footer />
-        </div>
+        </>
     );
 };
 

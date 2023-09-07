@@ -41,7 +41,7 @@ const ChefsDetails = () => {
                         <div className='bg-stone-100 opacity-30 rounded-lg -z-10 h-full w-full mx-auto absolute top-0'></div>
                     </div>
                 </Banner>
-                <div className='bg-stone-500 opacity-70 h-full w-full mx-auto absolute top-0 -z-20'></div>
+                <div className='bg-stone-600 opacity-70 h-full w-full mx-auto absolute top-0 -z-20'></div>
             </div>
             {
                 recipes.length === 0 && <div className="text-center mt-8"><Spinner /></div>
