@@ -44,7 +44,7 @@ const RecipesList = ({ recipe }) => {
                             <span className="font-bold">Cooking Method</span>
                             <br />
                             <span className="text-sm">{cookingMethod.length > 100 ?
-                                <>{cookingMethod.slice(0, 200)} <Link className="underline ml-1 text-emerald-600 font-semibold">See more</Link></>
+                                <>{cookingMethod.slice(0, 200)} <Link className="underline ml-1 text-orange-600 font-semibold">See more</Link></>
                                 : cookingMethod
                             }</span>
                         </td>

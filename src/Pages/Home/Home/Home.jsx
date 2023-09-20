@@ -19,7 +19,7 @@ const Home = () => {
       <Banner>
         <span className="text-semibold text-sm font-normal flex items-center gap-2">
           EXCLUSIVE RECIPES{" "}
-          <span className="bg-white text-emerald-500 border-b-2 rounded border-emerald-500 py-1 px-2 md:px-4">
+          <span className="bg-white text-orange-500 border-b-2 rounded border-orange-500 py-1 px-2 md:px-4">
             25% OFF
           </span>
         </span>

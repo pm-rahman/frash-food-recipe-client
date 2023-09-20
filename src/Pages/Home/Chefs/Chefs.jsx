@@ -21,18 +21,18 @@ const Chefs = () => {
   return (
     <>
       <h4 className="text-2xl font-bold mt-4 mb-3">
-        <span className="border-b-2 pb-1 text-emerald-500 border-emerald-500">Our </span>
+        <span className="border-b-2 pb-1 text-orange-500 border-orange-500">Our </span>
         Chefs
       </h4>
       <div className="flex gap-2 mt-2">
         <div className="flex items-center">
           <Icon
             onClick={chefStartHandler}
-            className="text-5xl text-emerald-500 hover:text-emerald-600 cursor-pointer"
+            className="text-5xl text-orange-500 hover:text-orange-600 cursor-pointer"
             icon="heroicons-outline:chevron-left"
           />
         </div>
-        <div className="grid sm:grid-cols-6 md:grid-cols-9 gap-4">
+        <div className="grid md:grid-cols-3 gap-4">
           {theChefs.slice(chefsStart, chefsEnd).map((chefs) => (
             <Chef key={chefs.id} chefs={chefs}></Chef>
           ))}
@@ -40,7 +40,7 @@ const Chefs = () => {
         <div className="flex items-center justify-end">
           <Icon
             onClick={chefEndHandler}
-            className="text-5xl text-emerald-500 hover:text-emerald-600 cursor-pointer"
+            className="text-5xl text-orange-500 hover:text-orange-600 cursor-pointer"
             icon="heroicons-outline:chevron-right"
           />
         </div>

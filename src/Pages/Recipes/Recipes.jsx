@@ -15,7 +15,7 @@ const Recipes = ({isHome}) => {
   return (
     <div className="py-2">
       <h4 className="text-2xl font-bold mb-3">
-        <span className="border-b-2 pb-1 text-emerald-500 border-emerald-500">Our</span> Recipes
+        <span className="border-b-2 pb-1 text-orange-500 border-orange-500">Our</span> Recipes
       </h4>
       <div className="grid md:grid-cols-3 gap-4">
         {isHome?

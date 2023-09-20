@@ -52,14 +52,14 @@ const Login = () => {
                         <h4 className="mb-3 text-2xl">Login</h4>
                         <input name="email" type="email" placeholder="Email" required className="w-full border-b border-l p-2 mb-2" />
                         <input name="password" type={isPassShow ? 'text' : 'password'} placeholder="password" required className="w-full border-b border-l p-2 mb-2" />
-                        <p onClick={() => setIsPassShow(true)} className="text-emerald-600 pl-2 mb-2">Show Password</p>
+                        <p onClick={() => setIsPassShow(true)} className="text-orange-600 pl-2 mb-2">Show Password</p>
                         <p className="text-red-600 pl-2">{error ? error : ""}</p>
-                        <button type="submit" className="btn bg-emerald-600 hover:bg-emerald-700 border-0 w-full text-white mt-3">Login</button>
+                        <button type="submit" className="btn bg-orange-600 hover:bg-orange-700 border-0 w-full text-white mt-3">Login</button>
                     </form>
                     <div className="mt-4 text-grey-600">
                         I don't have account?{" "}
                         <span>
-                            <Link to='/register' className="text-emerald-600 hover:underline">
+                            <Link to='/register' className="text-orange-600 hover:underline">
                                 Register
                             </Link>
                         </span>

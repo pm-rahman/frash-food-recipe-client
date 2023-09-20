@@ -12,7 +12,7 @@ const DiscountRecipes = () => {
     return (
 <div className="py-2">
           <h4 className="text-2xl mb-3 font-bold">
-            <span className="border-b-2 pb-1 text-emerald-500 border-emerald-500">
+            <span className="border-b-2 pb-1 text-orange-500 border-orange-500">
               Spatial Discounted
             </span>{" "}
             Recipes

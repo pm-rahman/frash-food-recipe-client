@@ -32,10 +32,10 @@ const ChefsDetails = () => {
                 />
               </LazyLoad>
             </div>
-            <div className="col-span-2 border-l-2 pl-2 border-emerald-500 text-white flex flex-col gap-2">
+            <div className="col-span-2 border-l-2 pl-2 border-orange-500 text-white flex flex-col gap-2">
               <div className="flex items-end justify-between mb-1">
                 <h4 className="font-bold">
-                  <span className="text-emerald-400 border-b pb-1 border-emerald-500">
+                  <span className="text-orange-400 border-b pb-1 border-orange-500">
                     {ChefName}
                   </span>
                 </h4>
@@ -46,7 +46,7 @@ const ChefsDetails = () => {
               </div>
               <p className="text-sm text-justify">{bio}</p>
               <div>
-                <h4><span className="text-emerald-400 border-b border-emerald-500">Extra</span> Info</h4>
+                <h4><span className="text-orange-400 border-b border-orange-500">Extra</span> Info</h4>
                 <p className="text-sm  font-medium">{experience} experience</p>
                 <p className="font-medium">
                   {NumberOfRecipes} Recipes Available
@@ -63,7 +63,7 @@ const ChefsDetails = () => {
       )}
       <div className="py-12 bg-slate-50">
         <h4 className="text-2xl font-normal mb-6">
-          <span className="text-emerald-400 border-b border-emerald-400">
+          <span className="text-orange-400 border-b border-orange-400">
             Hare Some
           </span>{" "}
           Recipes

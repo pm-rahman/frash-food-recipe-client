@@ -23,16 +23,16 @@ const NavMenu = () => {
           <div className="md:navbar-start">
             <Link
               to="/"
-              className="normal-case logo text-xl text-emerald-600 flex md:items-center"
+              className="normal-case logo text-xl text-orange-600 flex md:items-center"
             >
-              <span className="text-2xl text-emerald-500">F</span>resh{" "}
-              <span className="text-2xl text-emerald-500">F</span>ood{" "}
+              <span className="text-2xl text-orange-500">F</span>resh{" "}
+              <span className="text-2xl text-orange-500">F</span>ood{" "}
             </Link>
             <h4></h4>
           </div>
           <div className="md:navbar-end flex items-center gap-4">
             <div className="">
-              <ul className="flex gap-2 text-emerald-400 md:gap-4 md:px-1">
+              <ul className="flex gap-2 text-orange-400 md:gap-4 md:px-1">
                 <li>
                   <ActiveLink to="/">Home</ActiveLink>
                 </li>

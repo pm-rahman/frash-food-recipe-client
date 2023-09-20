@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <>
       <NavMenu />
-      <div className="bg-[rgb(245,251,248)]">
+      <div className="bg-[rgb(251,248,245)]">
         <div className="container py-8">
           <Outlet />
         </div>
