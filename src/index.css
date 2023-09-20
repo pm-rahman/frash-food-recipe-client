@@ -25,3 +25,40 @@ button {
 .chef-card-inner{
     transition: 1s;
 }
+/* discount cart */
+
+.Card:hover .CardHover{
+    top:0
+}
+/* container */
+.container{
+    max-width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media screen and (max-width:1000px) {
+    .container{
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+@media screen and (max-width:768px) {
+    .container{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+@media screen and (max-width:640px) {
+    .container{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+@media screen and (max-width:500px) {
+    .container{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}

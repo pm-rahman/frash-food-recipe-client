@@ -4,6 +4,7 @@ import '@smastrom/react-rating/style.css'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Button from '../../../Components/Button/Button';
 const RecipesList = ({ recipe }) => {
     const [favorite, setFavorite] = useState(false);
     const { recipeName, cookingMethod, ingredients, rating } = recipe;
@@ -18,7 +19,7 @@ const RecipesList = ({ recipe }) => {
         })
     }
     return (
-        <div className="overflow-x-auto w-full mb-4">
+        <div className="overflow-x-auto shadow-md w-full mb-4">
             <table className="w-full">
                 <tbody >
                     <tr className='grid grid-cols-7 px-5 py-3 items-center bg-white rounded-sm gap-2'>
@@ -55,7 +56,7 @@ const RecipesList = ({ recipe }) => {
                             />
                         </td>
                         <td>
-                            <button onClick={favoriteBtnHandler} disabled={favorite} className="btn btn-info px-3 py-1 text-white">Add favorite</button>
+                            <Button onClick={favoriteBtnHandler} disabled={favorite}>Add favorite</Button>
                         </td>
                     </tr>
                     {/* row 2 */}

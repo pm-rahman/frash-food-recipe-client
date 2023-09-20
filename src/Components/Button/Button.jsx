@@ -1,7 +1,7 @@
-const Button = ({className,fullWidth,children}) => {
+const Button = ({onClick,disabled,className,fullWidth,children}) => {
     return (
         <div>
-            <button className={`${fullWidth? 'w-full': '' } ${className} bg-emerald-600 text-xs md:text-base hover:bg-emerald-600 font-semibold py-1 md:py-1 px-3 md:px-4 rounded text-white`}>{children}</button>
+            <button onClick={onClick} disabled={disabled} className={`flex text-white items-center gap-2 hover:gap-3 duration-100 ${fullWidth? 'w-full justify-center': '' } ${className} bg-emerald-500 text-xs md:text-base hover:bg-emerald-600 font-semibold py-2 px-3 md:px-4 rounded`}>{children}</button>
         </div>
     );
 };

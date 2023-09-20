@@ -1,27 +1,52 @@
-import { Link } from "react-router-dom";
-import Button from "../../../Components/Button/Button";
-import { Icon } from '@iconify/react';
-
-const Chefs = ({ chefs }) => {
-    const { id, ChefName, chefPicture, experience, NumberOfRecipes, Likes } = chefs;
-    return (
-        <div className="chef-card w-full cursor-pointer relative rounded-sm bg-base-100 shadow overflow-hidden">
-            <figure className="h-40 overflow-hidden relative"> <img className="absolute top-0 w-full" src={chefPicture} alt="chefs" /></figure>
-            <div className="chef-card-inner p-1 absolute w-full h-full top-[78%] bg-emerald-100">
-                <h2 className="card-title">{ChefName}</h2>
-                <div className="flex items-end justify-between mb-1">
-                    <div>
-                        <p className="text-sm  font-medium">{experience}</p>
-                        <p className="font-medium">{NumberOfRecipes} Recipes Available</p>
-                    </div>
-                    <span className="text-xs flex flex-col items-center gap-1"><Icon className="text-xl" icon="fa-regular:thumbs-up" />{Likes}</span>
-                </div>
-                <Link to={`/chefs/${id}`}>
-                    <Button fullWidth={true}>View Recipes</Button>
-                </Link>
-            </div>
+import { Icon } from "@iconify/react";
+import Chef from "./Chef";
+import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+const Chefs = () => {
+  const theChefs = useLoaderData();
+  const [chefsStart, setChefsStart] = useState(0);
+  const [chefsEnd, setChefsEnd] = useState(3);
+  const chefStartHandler=()=>{
+    if(chefsStart>0){
+        setChefsStart(chefsStart-1);
+        setChefsEnd(chefsEnd-1)
+    }
+  }
+  const chefEndHandler=()=>{
+    if(chefsEnd<theChefs.length){
+        setChefsStart(chefsStart+1);
+        setChefsEnd(chefsEnd+1)
+    }
+  }
+  return (
+    <>
+      <h4 className="text-2xl font-bold mt-4 mb-3">
+        <span className="border-b-2 pb-1 text-emerald-500 border-emerald-500">Our </span>
+        Chefs
+      </h4>
+      <div className="flex gap-2 mt-2">
+        <div className="flex items-center">
+          <Icon
+            onClick={chefStartHandler}
+            className="text-5xl text-emerald-500 hover:text-emerald-600 cursor-pointer"
+            icon="heroicons-outline:chevron-left"
+          />
         </div>
-    );
+        <div className="grid sm:grid-cols-6 md:grid-cols-9 gap-4">
+          {theChefs.slice(chefsStart, chefsEnd).map((chefs) => (
+            <Chef key={chefs.id} chefs={chefs}></Chef>
+          ))}
+        </div>
+        <div className="flex items-center justify-end">
+          <Icon
+            onClick={chefEndHandler}
+            className="text-5xl text-emerald-500 hover:text-emerald-600 cursor-pointer"
+            icon="heroicons-outline:chevron-right"
+          />
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Chefs;
