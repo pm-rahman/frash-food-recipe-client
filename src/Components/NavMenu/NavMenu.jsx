@@ -18,8 +18,8 @@ const NavMenu = () => {
   };
   return (
     <>
-      <nav className="flex items-center justify-between gap-6 overflow-x-auto backdrop-blur shadow-lg container py-1 sticky top-0 z-50">
-        <div className="navbar p-0 md:p-1 flex-col md:flex-row gap-1">
+      <nav className="flex items-center justify-between gap-6 overflow-x-auto backdrop-blur shadow-lg py-1 sticky top-0 z-50">
+        <div className="navbar container md:py-1 flex-col md:flex-row gap-1">
           <div className="md:navbar-start">
             <Link
               to="/"
